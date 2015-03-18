@@ -116,12 +116,17 @@ function creatTodo() {
 
 function viewToDo() {
 $("#todosArea").empty();
+	
+	todoList.sort(function(a,b){		 
+	  return new Date(b.valDueDate) - new Date(a.valDueDate);
+	});
+	
 	for (var i = 0; i < todoList.length; i++) {
-		var date = todoList[i].valDueDate || "Not specified";
-		$("#todosArea").prepend('<li class="lisArea" _index=' + i +'><input type="checkbox" class="chkdone">' + '<h3>' + todoList[i].valTodoName +'</h3>' + '<h4>Task:' + todoList[i].valTodoTask + '</h4>' + ' <h5 class="BlockDueDate">Due Date:' + date +'</h5>' + '<button class="btnDone" class="btn btn-success">Done</button>' + '</li>');	
-		    
-    	    console.log("todoList lenght :" , todoList.length);
 
+		var date = todoList[i].valDueDate || "Not specified";
+        $("#todosArea").append('<li class="lisArea" _index=' + i +'><input type="checkbox" class="chkdone">' + '<h3>' + todoList[i].valTodoName +'</h3>' + '<h4>Task:' + todoList[i].valTodoTask + '</h4>' + ' <h5 class="BlockDueDate">Due Date:' + date +'</h5>' + '<button class="btnDone" class="btn btn-success">Done</button>' + '</li>');	
+		console.log("todoList lenght :" , todoList.length);
+		
 	};
 	$(".lisArea").addClass( "list-group-item list-group-item-info" ).css("border" , "3px double");
 }
