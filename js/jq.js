@@ -24,13 +24,6 @@ $("document").ready(function() {
 	});
 
 
-	/* $("#dueDate").datetimepicker({
-		format: 'mm/dd/yyyy hh:ii:ss'
-
-
-	}); */
-
-
 	// To hide the add new todoname form..
 	$("#addToDoName").css("display", "none");
 
@@ -41,8 +34,6 @@ $("document").ready(function() {
 	$("#btnAddTodoName").click(function() {
 
 		$("#addToDoName").css("display", "block");
-		//$("#addToDoName").fadeOut("2000");
-
 	});
 
 	$(".AlertSuceess").hide();
@@ -125,7 +116,7 @@ function viewToDo() {
 	$("#todosArea").empty();
 
 	todoList.sort(function(a, b) {
-		return new Date(b.valDueDate) - new Date(a.valDueDate);
+		return new Date(b.valDueDate) < new Date(a.valDueDate);
 	});
 
 	for (var i = 0; i < todoList.length; i++) {
