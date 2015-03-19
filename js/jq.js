@@ -10,14 +10,25 @@ $("document").ready(function() {
 
 	viewToDo(); // to show all the data..
 	dataClear(); //to clear the value of input tags
-	$("#dueDate").css("width" ,"30%");
+
+	$("#dueDate").css("width", "30%");
+	$('#dueDate').datetimepicker({
+		//language:  'fr',
+		weekStart: 1,
+		todayBtn: 1,
+		autoclose: 1,
+		todayHighlight: 1,
+		startView: 2,
+		forceParse: 0,
+		showMeridian: 1
+	});
 
 
-	$("#dueDate").datetimepicker({
+	/* $("#dueDate").datetimepicker({
 		format: 'mm/dd/yyyy hh:ii:ss'
 
 
-	});
+	}); */
 
 
 	// To hide the add new todoname form..
@@ -40,9 +51,8 @@ $("document").ready(function() {
 
 	$("#btnSubmit").click(function() {
 
-		creatTodo();
-		viewToDo();
-		dataClear();
+		validation();
+
 
 	});
 
@@ -81,15 +91,6 @@ $("document").ready(function() {
 
 
 	});
-
-	$("#todosArea").on('click', '#btnDone', function() {
-		$(this).fadeOut(300, function() {
-			$(this).parent().remove();
-			console.log(todoList.length);
-
-		});
-	});
-
 });
 
 
@@ -130,7 +131,7 @@ function viewToDo() {
 	for (var i = 0; i < todoList.length; i++) {
 
 		var date = todoList[i].valDueDate || "Not specified";
-		$("#todosArea").append('<li class="lisArea" _index=' + i + '><input type="checkbox" class="chkdone">' + '<h3>' + todoList[i].valTodoName + '</h3>' + '<h4>Task:' + todoList[i].valTodoTask + '</h4>' + ' <h5 class="BlockDueDate">Due Date:' + date + '</h5>' + '<button class="btnDone" class="btn btn-success">Done</button>' + '</li>');
+		$("#todosArea").append('<li class="lisArea" _index=' + i + '><input type="checkbox" class="chkdone">' + '<h3>' + todoList[i].valTodoName + '</h3>' + '<h4>Task:' + todoList[i].valTodoTask + '</h4>' + ' <h5 class="BlockDueDate">Due Date:' + date + '</h5>' + '</li>');
 		console.log("todoList lenght :", todoList.length);
 
 	};
@@ -142,4 +143,24 @@ function dataClear() {
 	$("#todoName").val("");
 	$("#todoTask").val("");
 	$("#dueDate").val("");
+}
+
+function validation() {
+
+	var testname = $(".todoName").val();
+	var testDueDate = $(".dueDate").val();
+
+	if (testname === null || testname === "") {
+
+		alert("Please Enter the ToDo Name ....");
+
+	} else if (testDueDate === null || testDueDate === "") {
+
+		alert("Please Enter the ToDo Due Date ....");
+	} else {
+
+		creatTodo();
+		viewToDo();
+		dataClear();
+	}
 }

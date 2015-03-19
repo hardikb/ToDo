@@ -3,19 +3,15 @@
 	<head>
 		<title>ToDo Using Bootstrap, Jquery</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-
-    	<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css">
-    	<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap-theme.min.css">
-    	<link rel="stylesheet" type="text/css" href="css/bootstrap-datetimepicker.min.css">
-
-
-    	<script type="text/javascript" src="js/jquery-2.1.3.min.js"></script>
-    	<script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
-    	<script type="text/javascript" src="js/moment.min.js"></script>
-    	<script type="text/javascript" src="js/bootstrap-datetimepicker.js"></script>
-    	<script type="text/javascript" src="js/locales/bootstrap-datetimepicker.fr.js" charset="UTF-8"></script>
-    	
+		<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap-theme.min.css">
+		<link rel="stylesheet" type="text/css" href="css/bootstrap-datetimepicker.min.css">
+		<script type="text/javascript" src="js/jquery-2.1.3.min.js"></script>
+		<script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="js/moment.min.js"></script>
+		<script type="text/javascript" src="js/bootstrap-datetimepicker.js"></script>
+		<script type="text/javascript" src="js/locales/bootstrap-datetimepicker.fr.js" charset="UTF-8"></script>
+		
 		<script type="text/javascript" src="js/jq.js"></script>
 	</head>
 	<body>
@@ -45,33 +41,38 @@
 							<h1 class="panel-title">Add New ToDo</h1>
 						</div>
 						<div class="panel-body">
+							
+							
+							
 							<div class="form-group">
 								
 								<label>Todo Name:</label>
-								<input type="text" class="form-control" id="todoName" placeholder="ToDo Name">
+								<input type="text" class="form-control todoName" id="todoName" placeholder="ToDo Name" >
 								
 							</div>
 							<div class="form-group">
 								
 								<label>Task:</label>
-								<input type="text" class="form-control" id="todoTask" placeholder="Task">
+								<input type="text" class="form-control todoTask" id="todoTask" placeholder="Task">
 								
 							</div>
 							<div class="form-group">
 								
 								
-								<div class="input-group date input-append date" id="dueDate">
-									<input type='text' class="form-control" size="20" readonly />
+								<div class="input-group input-append date " id="dueDate">
+									<input type='text' class="form-control dueDate" size="20" readonly />
 									<span class="input-group-addon"><span class="glyphicon glyphicon-calendar">
 									</span>
 								</span>
 							</div>
 						</div>
-
 						<div>
 							<button id="btnSubmit" class="btn btn-success">Add</button>
 							<button id="btnCloseAdd" type="button" class="btn btn-danger">Cancle</button>
 						</div>
+						
+						
+						
 						
 					</div>
 				</div>
